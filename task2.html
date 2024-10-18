@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Press Tracker</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    
+    #keyInfo {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Press any key to see its key code and value</h1>
+  
+ 
+  <div id="keyInfo">Press a key...</div>
+
+  <script>
+    
+    document.addEventListener('keydown', function(event) {
+      
+      const keyInfo = `Key: ${event.key}, Code: ${event.code}`;
+      
+      
+      document.getElementById('keyInfo').textContent = keyInfo;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 50px auto;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+    }
+   
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Form Validation</h1>
+  
+  
+  <form id="myForm">
+    <label for="username">Username (min 5 characters):</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="password">Password (min 8 characters):</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Submit</button>
+    
+    
+    <div id="errorMsg" class="error"></div>
+  </form>
+
+  <script>
+    
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      
+      const errorMsg = document.getElementById('errorMsg');
+      
+      
+      errorMsg.textContent = '';
+
+      
+      if (username.length < 5) {
+        errorMsg.textContent = 'Username must be at least 5 characters long.';
+        return; 
+      }
+
+      
+      if (password.length < 8) {
+        errorMsg.textContent = 'Password must be at least 8 characters long.';
+        return; 
+      }
+
+      
+      alert('Form submitted successfully!');
+    });
+  </script>
+</body>
+</html>
